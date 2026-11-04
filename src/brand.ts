@@ -53,6 +53,7 @@ export const font = {
 // ───────────────────────── 3. FORMAS ─────────────────────────
 export const shape = {
   radiusPill: 50, // CTAs, badges, cards de popup
+  radiusSharp: 0, // bandas editoriales de overlays (CTA a ancho completo)
   radiusImage: 15, // fotografía de producto
   borderMoka: `2px solid ${color.moka}`,
   divider: "1px solid rgba(63, 43, 36, 0.08)",
@@ -97,11 +98,11 @@ export const captions = {
 // Superposiciones sobre video: texto directo, sin cajas por defecto.
 // El trazo oscuro da legibilidad sobre cualquier fondo (mismo criterio que los subtítulos).
 export const overlay = {
-  ink: color.white, // texto principal sobre video
-  stroke: color.charcoal,
-  strokeWidth: 6,
+  ink: color.cream, // texto principal sobre video: crema, no blanco puro
   accent: color.rust, // SOLO cifras de oferta (3 y 6, 20%)
-  rule: color.rust, // filete vertical de los lower thirds
+  rule: color.cream, // filete vertical de los lower thirds (rust queda para cifras)
+  // Degradado oscuro en el borde superior: da contraste sin contorno ni caja.
+  scrim: `linear-gradient(180deg, rgba(29, 24, 21, 0.62) 0%, rgba(29, 24, 21, 0.3) 60%, rgba(29, 24, 21, 0) 100%)`,
   ctaBg: color.moka, // único bloque sólido: llamado a la acción final
   ctaInk: color.cream,
   logoBg: color.cream, // píldora del logo al inicio
@@ -109,14 +110,16 @@ export const overlay = {
 
 export const popup = {
   top: 170, // zona segura superior (debajo de la UI de la app)
+  scrimHeight: 760, // alto del degradado de lectura
   sideMargin: 70,
   eyebrowSize: 30,
   titleSize: 96,
   titleSizeLong: 70, // títulos de más de 18 caracteres
-  subSize: 36,
+  titleStyle: "normal" as const, // recto: el italic quedó asociado a sticker
+  subSize: 34,
   statSize: 300, // cifras grandes (3 y 6, 20%)
-  ruleWidth: 8,
-  ctaPadding: "44px 56px",
+  ruleWidth: 6,
+  ctaPadding: "44px 70px", // banda a ancho completo, alineada al margen
   rise: 24, // entrada vertical suave, sin rebote
   logoWidth: 620,
   logoPadding: "36px 70px",
