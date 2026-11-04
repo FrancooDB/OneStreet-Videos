@@ -94,30 +94,39 @@ export const captions = {
 } as const;
 
 // ───────────────────────── 7. POPUPS / CARDS ─────────────────────────
-// Tonos permitidos. "offer" es el único que usa Rust (acento exclusivo de ofertas).
-export const popupTone = {
-  offer: { bg: color.rust, fg: color.cream, border: `2px solid ${color.cream}` }, // descuentos, cuotas, envío gratis
-  info: { bg: color.cream, fg: color.moka, border: `2px solid ${color.moka}` }, // datos, dirección, categorías
-  cta: { bg: color.moka, fg: color.cream, border: `2px solid ${color.cream}` }, // llamado a la acción final
+// Superposiciones sobre video: texto directo, sin cajas por defecto.
+// El trazo oscuro da legibilidad sobre cualquier fondo (mismo criterio que los subtítulos).
+export const overlay = {
+  ink: color.white, // texto principal sobre video
+  stroke: color.charcoal,
+  strokeWidth: 6,
+  accent: color.rust, // SOLO cifras de oferta (3 y 6, 20%)
+  rule: color.rust, // filete vertical de los lower thirds
+  ctaBg: color.moka, // único bloque sólido: llamado a la acción final
+  ctaInk: color.cream,
+  logoBg: color.cream, // píldora del logo al inicio
 } as const;
-export type PopupTone = keyof typeof popupTone;
 
 export const popup = {
   top: 170, // zona segura superior (debajo de la UI de la app)
   sideMargin: 70,
-  radius: 15, // tarjeta rectangular suave: más editorial que píldora
-  padding: "40px 52px",
-  kickerSize: 26, // etiqueta superior tipo editorial
-  titleSize: 60,
-  titleSizeLong: 44,
-  subSize: 30,
+  eyebrowSize: 30,
+  titleSize: 96,
+  titleSizeLong: 70, // títulos de más de 18 caracteres
+  subSize: 36,
+  statSize: 300, // cifras grandes (3 y 6, 20%)
+  ruleWidth: 8,
+  ctaPadding: "44px 56px",
   rise: 24, // entrada vertical suave, sin rebote
-  maxPerSecond: 1, // evitar saturación
+  logoWidth: 620,
+  logoPadding: "36px 70px",
+  logoFrames: 45, // el logo aparece solo al inicio, antes del primer overlay
 } as const;
 
 // ───────────────────────── 8. MOVIMIENTO ─────────────────────────
 export const motion = {
   fps: 30,
+  enterFrames: 12,
   popupExitFrames: 8,
   punchScale: 0.015, // zoom casi imperceptible: sobrio
   punchFrames: 18,
