@@ -85,13 +85,13 @@ export const copy = {
 
 // ───────────────────────── 6. SUBTÍTULOS ─────────────────────────
 export const captions = {
-  fontSize: 84,
+  fontSize: 54, // una sola línea, 2-3 palabras: acompaña, no compite con el presentador
   textColor: color.white,
   activeColor: color.rust, // palabra activa resaltada en el acento de marca
   strokeColor: color.charcoal,
-  strokeWidth: 10,
-  switchEveryMs: 900,
-  paddingBottom: 460, // zona segura: por encima de la UI de Reels/TikTok
+  strokeWidth: 6,
+  switchEveryMs: 450,
+  paddingBottom: 400, // zona segura: por encima de la UI de Reels/TikTok
 } as const;
 
 // ───────────────────────── 7. POPUPS / CARDS ─────────────────────────
@@ -126,6 +126,30 @@ export const popup = {
   logoFrames: 45, // el logo aparece solo al inicio, antes del primer overlay
 } as const;
 
+// Pastillas (src/components/Pills.tsx): formato por tipo de mensaje.
+// "offer" es el único tono con Rust (acento exclusivo de ofertas).
+export const pillTone = {
+  offer: { bg: color.rust, fg: color.cream, border: `2px solid ${color.cream}` }, // descuentos, cuotas
+  info: { bg: color.cream, fg: color.moka, border: `2px solid ${color.moka}` }, // envío, precios, datos
+  cta: { bg: color.moka, fg: color.cream, border: `2px solid ${color.cream}` }, // llamado a la acción final
+} as const;
+export type PillTone = keyof typeof pillTone;
+
+export const pill = {
+  padding: "20px 44px",
+  titleSize: 56, // sticker estándar (una línea)
+  heroSize: 110, // dato clave (ej. 20% OFF)
+  noteSize: 28,
+  cardRadius: 15,
+  cardPadding: "26px 40px",
+  cardMinWidth: 560,
+  priceLabelSize: 32,
+  priceValueSize: 58,
+  ctaPadding: "26px 40px",
+  ctaSize: 48,
+  slide: 70, // desplazamiento lateral de entrada
+} as const;
+
 // ───────────────────────── 8. MOVIMIENTO ─────────────────────────
 export const motion = {
   fps: 30,
@@ -133,6 +157,13 @@ export const motion = {
   popupExitFrames: 8,
   punchScale: 0.015, // zoom casi imperceptible: sobrio
   punchFrames: 18,
+} as const;
+
+// Efectos de sonido por tipo de overlay (archivos en public/sfx). Volumen bajo: la voz manda.
+export const sfx = {
+  lower: { src: staticFile("sfx/whoosh.wav"), volume: 0.22 },
+  stat: { src: staticFile("sfx/hit.wav"), volume: 0.3 },
+  cta: { src: staticFile("sfx/ding.wav"), volume: 0.25 },
 } as const;
 
 // ───────────────────────── 9. FORMATO ─────────────────────────

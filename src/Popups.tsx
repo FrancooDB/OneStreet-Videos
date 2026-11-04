@@ -1,40 +1,59 @@
-import { copy } from "./brand";
-import { CtaBanner, LowerThird, StatBlock } from "./components/Overlays";
+import { Audio } from "remotion";
+import { PillTone, copy, sfx } from "./brand";
+import { CtaBar, PriceCard, Side, Sticker } from "./components/Pills";
 import { TimedOverlay } from "./components/TimedOverlay";
 
-// Overlays de ESTE video. Tiempos en la línea original de captions.json (antes del recorte).
-// Cada overlay usa un componente de src/components: no definir estilos acá.
+// Popups de ESTE video. Tiempos en la línea original de captions.json (antes del recorte).
+// Una sola idea por popup, con un formato distinto según el tipo de mensaje.
+// Estilos en src/components/Pills.tsx y src/brand.ts: no definirlos acá.
 export type OverlayDef =
-  | { kind: "lower"; fromMs: number; toMs: number; eyebrow?: string; title: string; sub?: string }
-  | { kind: "stat"; fromMs: number; toMs: number; value: string; label: string; accent?: boolean }
+  | { kind: "sticker"; fromMs: number; toMs: number; side: Side; tone: PillTone; title: string; note?: string; hero?: boolean }
+  | { kind: "price"; fromMs: number; toMs: number; side: Side; kicker?: string; rows: { label: string; value: string }[] }
   | { kind: "cta"; fromMs: number; toMs: number; title: string; sub?: string };
 
 export const POPUPS: OverlayDef[] = [
-  { kind: "lower", fromMs: 6400, toMs: 8200, title: "CYBER MONDAY", sub: "Arrancamos la semana" },
-  { kind: "stat", fromMs: 10800, toMs: 12600, value: "3 Y 6", label: "CUOTAS SIN INTERÉS", accent: true },
-  { kind: "stat", fromMs: 12700, toMs: 15000, value: "20%", label: "OFF PAGANDO CON TRANSFERENCIA", accent: true },
-  { kind: "lower", fromMs: 15100, toMs: 19600, title: "ENVÍO GRATIS", sub: "En compras desde $90.000 · Todo el país" },
-  { kind: "lower", fromMs: 22800, toMs: 27200, title: "BERMUDAS DESDE $24.000", sub: "Remeras desde $13.000" },
-  { kind: "cta", fromMs: 31200, toMs: 33700, title: "ENVÍOS A TODO EL PAÍS", sub: `Te esperamos en ${copy.name}` },
+  { kind: "sticker", fromMs: 6400, toMs: 8000, side: "left", tone: "offer", title: "CYBER MONDAY" },
+  { kind: "sticker", fromMs: 10800, toMs: 12500, side: "right", tone: "info", title: "3 Y 6 CUOTAS S/ INTERÉS" },
+  { kind: "sticker", fromMs: 12700, toMs: 14500, side: "left", tone: "offer", title: "20% OFF", note: "Con transferencia", hero: true },
+  { kind: "sticker", fromMs: 15100, toMs: 17000, side: "right", tone: "info", title: "ENVÍO GRATIS", note: "Desde $90.000" },
+  {
+    kind: "price",
+    fromMs: 22800,
+    toMs: 27000,
+    side: "left",
+    kicker: "Desde",
+    rows: [
+      { label: "BERMUDAS", value: "$24.000" },
+      { label: "REMERAS", value: "$13.000" },
+    ],
+  },
+  { kind: "cta", fromMs: 28900, toMs: 33400, title: copy.address.toUpperCase(), sub: "Envíos a todo el país" },
 ];
+
+// Efecto de sonido por popup (ver sfx en brand.ts): el dato clave suena distinto.
+const soundOf = (def: OverlayDef) => (def.kind === "cta" ? sfx.cta : def.kind === "sticker" && def.hero ? sfx.stat : sfx.lower);
 
 const renderOverlay = (def: OverlayDef) => {
   switch (def.kind) {
-    case "lower":
-      return <LowerThird eyebrow={def.eyebrow} title={def.title} sub={def.sub} />;
-    case "stat":
-      return <StatBlock value={def.value} label={def.label} accent={def.accent} />;
+    case "sticker":
+      return <Sticker title={def.title} note={def.note} tone={def.tone} side={def.side} hero={def.hero} />;
+    case "price":
+      return <PriceCard rows={def.rows} side={def.side} kicker={def.kicker} />;
     case "cta":
-      return <CtaBanner title={def.title} sub={def.sub} />;
+      return <CtaBar title={def.title} sub={def.sub} />;
   }
 };
 
 export const Popups: React.FC = () => (
   <>
-    {POPUPS.map((def) => (
-      <TimedOverlay key={`${def.kind}-${def.fromMs}`} fromMs={def.fromMs} toMs={def.toMs}>
-        {renderOverlay(def)}
-      </TimedOverlay>
-    ))}
+    {POPUPS.map((def) => {
+      const sound = soundOf(def);
+      return (
+        <TimedOverlay key={`${def.kind}-${def.fromMs}`} fromMs={def.fromMs} toMs={def.toMs}>
+          <Audio src={sound.src} volume={sound.volume} />
+          {renderOverlay(def)}
+        </TimedOverlay>
+      );
+    })}
   </>
 );
