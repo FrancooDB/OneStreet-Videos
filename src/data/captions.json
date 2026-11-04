@@ -49,17 +49,10 @@
     "confidence": null
   },
   {
-    "text": " el",
+    "text": " en",
     "startMs": 5560,
     "endMs": 5680,
     "timestampMs": 5620,
-    "confidence": null
-  },
-  {
-    "text": " buen",
-    "startMs": 5680,
-    "endMs": 5900,
-    "timestampMs": 5790,
     "confidence": null
   },
   {
@@ -119,13 +112,6 @@
     "confidence": null
   },
   {
-    "text": " estos",
-    "startMs": 8980,
-    "endMs": 9240,
-    "timestampMs": 9110,
-    "confidence": null
-  },
-  {
     "text": " fueron",
     "startMs": 9240,
     "endMs": 9460,
@@ -140,17 +126,10 @@
     "confidence": null
   },
   {
-    "text": " la",
-    "startMs": 9480,
-    "endMs": 9740,
-    "timestampMs": 9610,
-    "confidence": null
-  },
-  {
-    "text": " noche",
-    "startMs": 9740,
+    "text": " anoche",
+    "startMs": 9460,
     "endMs": 10000,
-    "timestampMs": 9870,
+    "timestampMs": 9730,
     "confidence": null
   },
   {
@@ -305,13 +284,6 @@
     "startMs": 17460,
     "endMs": 17580,
     "timestampMs": 17520,
-    "confidence": null
-  },
-  {
-    "text": " el",
-    "startMs": 17580,
-    "endMs": 17660,
-    "timestampMs": 17620,
     "confidence": null
   },
   {
@@ -476,7 +448,7 @@
     "confidence": null
   },
   {
-    "text": " pruebas",
+    "text": " promos",
     "startMs": 27180,
     "endMs": 27600,
     "timestampMs": 27390,
@@ -504,7 +476,7 @@
     "confidence": null
   },
   {
-    "text": " nos",
+    "text": " los",
     "startMs": 28360,
     "endMs": 28620,
     "timestampMs": 28490,
@@ -518,7 +490,7 @@
     "confidence": null
   },
   {
-    "text": " a",
+    "text": " en",
     "startMs": 28960,
     "endMs": 29060,
     "timestampMs": 29010,
@@ -532,7 +504,7 @@
     "confidence": null
   },
   {
-    "text": " Cervantes al",
+    "text": " Cervantes",
     "startMs": 29340,
     "endMs": 29960,
     "timestampMs": 29650,
