@@ -2,8 +2,18 @@ import { useMemo } from "react";
 import { createTikTokStyleCaptions } from "@remotion/captions";
 import type { Caption, TikTokPage } from "@remotion/captions";
 import { AbsoluteFill, Sequence, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { captions as style, font } from "./brand";
+import { captions as style, font, timeline } from "./brand";
 import captionsData from "./data/captions.json";
+
+// Subtítulos corridos al mismo origen que el video recortado (ver timeline en brand.ts)
+const shiftedCaptions: Caption[] = (captionsData as Caption[])
+  .filter((c) => c.endMs > timeline.trimStartMs)
+  .map((c) => ({
+    ...c,
+    startMs: Math.max(0, c.startMs - timeline.trimStartMs),
+    endMs: c.endMs - timeline.trimStartMs,
+    timestampMs: c.timestampMs === null ? null : c.timestampMs - timeline.trimStartMs,
+  }));
 
 const CaptionPage: React.FC<{ page: TikTokPage }> = ({ page }) => {
   const frame = useCurrentFrame();
@@ -48,7 +58,7 @@ export const Captions: React.FC = () => {
   const { pages } = useMemo(
     () =>
       createTikTokStyleCaptions({
-        captions: captionsData as Caption[],
+        captions: shiftedCaptions,
         combineTokensWithinMilliseconds: style.switchEveryMs,
       }),
     [],

@@ -96,29 +96,30 @@ export const captions = {
 // ───────────────────────── 7. POPUPS / CARDS ─────────────────────────
 // Tonos permitidos. "offer" es el único que usa Rust (acento exclusivo de ofertas).
 export const popupTone = {
-  offer: { bg: color.rust, fg: color.cream }, // descuentos, cuotas, envío gratis
-  info: { bg: color.cream, fg: color.moka }, // datos, dirección, categorías
-  cta: { bg: color.moka, fg: color.cream }, // llamado a la acción final
+  offer: { bg: color.rust, fg: color.cream, border: `2px solid ${color.cream}` }, // descuentos, cuotas, envío gratis
+  info: { bg: color.cream, fg: color.moka, border: `2px solid ${color.moka}` }, // datos, dirección, categorías
+  cta: { bg: color.moka, fg: color.cream, border: `2px solid ${color.cream}` }, // llamado a la acción final
 } as const;
 export type PopupTone = keyof typeof popupTone;
 
 export const popup = {
   top: 170, // zona segura superior (debajo de la UI de la app)
   sideMargin: 70,
-  emojiSize: 110,
-  titleSize: 72,
-  titleSizeLong: 46,
-  subSize: 34,
-  border: `4px solid ${color.cream}`,
+  radius: 15, // tarjeta rectangular suave: más editorial que píldora
+  padding: "40px 52px",
+  kickerSize: 26, // etiqueta superior tipo editorial
+  titleSize: 60,
+  titleSizeLong: 44,
+  subSize: 30,
+  rise: 24, // entrada vertical suave, sin rebote
   maxPerSecond: 1, // evitar saturación
 } as const;
 
 // ───────────────────────── 8. MOVIMIENTO ─────────────────────────
 export const motion = {
   fps: 30,
-  popupSpring: { damping: 14, stiffness: 170, mass: 0.7 },
   popupExitFrames: 8,
-  punchScale: 0.04, // zoom de impacto al entrar un popup (sutil, editorial)
+  punchScale: 0.015, // zoom casi imperceptible: sobrio
   punchFrames: 18,
 } as const;
 
@@ -127,4 +128,13 @@ export const format = {
   width: 1080,
   height: 1920,
   fps: 30,
+} as const;
+
+// ───────────────────────── 10. LINEA DE TIEMPO ─────────────────────────
+// Recorte de apertura: el video original arranca con charla antes del anuncio.
+// Los popups, subtítulos y el video se corren juntos desde este punto.
+export const timeline = {
+  trimStartMs: 4700,
+  trimStartFrames: 141, // trimStartMs en frames a format.fps
+  durationFrames: 872, // 1013 originales - 141 recortados
 } as const;
