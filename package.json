@@ -35,7 +35,11 @@
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
     "transcribe": "tsx scripts/transcribe.mts",
-    "render": "remotion render MyComp out/video.mp4 --crf=24 --x264-preset=medium"
+    "render": "remotion render MyComp out/video.mp4 --crf=24 --x264-preset=medium",
+    "reel:build": "node reels/cyber-monday/build-v2.mjs",
+    "reel:preview": "node reels/cyber-monday/build-v2.mjs && cd reels/cyber-monday && npx --yes hyperframes@0.7.109 preview",
+    "reel:render": "node reels/cyber-monday/render.mjs",
+    "reel:draft": "node reels/cyber-monday/render.mjs draft"
   },
   "allowScripts": {
     "esbuild": false

@@ -16,6 +16,7 @@ Este repo sirve para editar y renderizar videos verticales de OneStreet con Remo
 - `src/Captions.tsx`: subtítulos estilo TikTok desde `src/data/captions.json`.
 - `public/`: video base y logos. Los archivos estáticos se referencian con `staticFile()`.
 - `scripts/transcribe.mts`: transcripción local de audio para generar subtítulos.
+- `reels/<nombre>/`: reels hechos con HyperFrames (no Remotion). Toman colores de `src/brand.ts` y logos de `public/brand/`. Ver `reels/cyber-monday/README.md` (`npm run reel:preview|draft|render`).
 
 ## Reglas de trabajo
 

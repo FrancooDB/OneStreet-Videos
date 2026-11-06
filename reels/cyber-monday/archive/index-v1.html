@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>OneStreet Cyber Monday</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Poppins';font-weight:800;font-style:normal;src:url(assets/fonts/Poppins-ExtraBold.ttf)}
+@font-face{font-family:'Poppins';font-weight:800;font-style:italic;src:url(assets/fonts/Poppins-ExtraBoldItalic.ttf)}
+:root{--moka:#3F2B24;--cream:#F7F7ED;--charcoal:#1D1815;--rust:#B24A3B;--pewter:#7D736E}
+*{box-sizing:border-box}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000;font-family:'Poppins',sans-serif}
+#reel{position:relative;width:1080px;height:1920px;overflow:hidden;background:#000}
+#frame{position:absolute;inset:0;transform-origin:50% 30%}
+#frame video{width:1080px;height:1920px;object-fit:cover;display:block}
+#logo{position:absolute;left:0;right:0;top:120px;display:flex;flex-direction:column;align-items:center;gap:18px;z-index:5}
+#logo .pill{background:var(--cream);border-radius:50px;padding:20px 44px;display:flex}
+#logo .pill img{height:62px;display:block}
+#logo .badge{background:var(--rust);color:var(--cream);font-style:italic;font-weight:800;font-size:44px;letter-spacing:.04em;padding:10px 30px;border-radius:50px}
+.cardwrap{position:absolute;left:0;right:0;top:1000px;display:flex;justify-content:center;z-index:6}
+.card{background:var(--cream);color:var(--charcoal);border-radius:36px;padding:34px 56px 38px;text-align:center;min-width:600px;max-width:900px}
+.card.tag{border-radius:22px;border-left:18px solid var(--moka)}
+.big{font-style:italic;font-weight:800;font-size:200px;line-height:.95;letter-spacing:-.02em}
+.mid{font-style:italic;font-weight:800;font-size:86px;line-height:1.05}
+.price{font-style:italic;font-weight:800;font-size:92px;line-height:1.05}
+.sub{font-weight:800;font-size:44px;letter-spacing:.04em;margin-top:8px}
+.eyebrow{font-weight:800;font-size:36px;letter-spacing:.1em;color:var(--pewter);margin-bottom:6px}
+.rust{color:var(--rust)}
+.capwrap{position:absolute;left:90px;right:90px;top:1460px;display:flex;justify-content:center;z-index:7}
+.capwrap.high{top:1000px}
+.cap{background:rgba(29,24,21,.9);border:2px solid rgba(247,247,237,.35);color:var(--cream);font-style:italic;font-weight:800;font-size:62px;line-height:1.1;padding:10px 28px 14px;border-radius:18px;white-space:nowrap}
+.cap.accent{background:var(--rust);border-color:rgba(247,247,237,.55)}
+#cta{position:absolute;left:0;right:0;bottom:0;height:1920px;z-index:6}
+#cta .band{position:absolute;left:0;right:0;top:1160px;height:440px;background:var(--moka);color:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+#cta .wm{background:var(--cream);border-radius:50px;padding:16px 38px;display:flex}
+#cta .wm img{height:54px;display:block}
+#cta .addr{font-style:italic;font-weight:800;font-size:84px;line-height:1}
+#cta .ship{font-weight:800;font-size:38px;letter-spacing:.08em;opacity:.85}
+</style></head><body>
+<div id="reel" data-composition-id="reel" data-start="0" data-duration="27.8667" data-width="1080" data-height="1920">
+<div id="frame"><video id="v" src="assets/cut.mp4" data-start="0" data-duration="27.8667" data-track-index="0" muted playsinline></video></div>
+<audio id="voice" src="assets/voice.wav" data-start="0" data-duration="27.8667" data-track-index="10" data-volume="1"></audio>
+<audio id="s-logo" src="assets/sfx/hit.wav" data-start="0.030" data-duration="0.35" data-track-index="11" data-volume="0.28"></audio>
+<audio id="s-cyber" src="assets/sfx/whoosh.wav" data-start="1.627" data-duration="0.55" data-track-index="12" data-volume="0.3"></audio>
+<audio id="s-cuotas" src="assets/sfx/hit.wav" data-start="6.013" data-duration="0.35" data-track-index="13" data-volume="0.35"></audio>
+<audio id="s-transf" src="assets/sfx/whoosh.wav" data-start="7.367" data-duration="0.55" data-track-index="11" data-volume="0.3"></audio>
+<audio id="s-envio" src="assets/sfx/ding.wav" data-start="12.527" data-duration="0.9" data-track-index="12" data-volume="0.22"></audio>
+<audio id="s-berm" src="assets/sfx/hit.wav" data-start="18.147" data-duration="0.35" data-track-index="13" data-volume="0.3"></audio>
+<audio id="s-rem" src="assets/sfx/whoosh.wav" data-start="19.447" data-duration="0.55" data-track-index="11" data-volume="0.26"></audio>
+<audio id="s-cta" src="assets/sfx/ding.wav" data-start="24.207" data-duration="0.9" data-track-index="12" data-volume="0.22"></audio>
+<div id="logo" class="clip" data-start="0" data-duration="3.103" data-track-index="2"><div class="pill"><img src="assets/brand/logo-wordmark.png" alt="OneStreet"></div><div class="badge">CYBER MONDAY</div></div>
+<div id="c-cuotas" class="clip cardwrap" data-start="5.963" data-duration="1.564" data-track-index="3"><div class="card"><div class="big rust">3 Y 6</div><div class="sub">CUOTAS SIN INTERÉS</div></div></div>
+<div id="c-transf" class="clip cardwrap" data-start="7.537" data-duration="2.210" data-track-index="3"><div class="card"><div class="big rust">20%</div><div class="sub">OFF EN TRANSFERENCIA</div></div></div>
+<div id="c-envio" class="clip cardwrap" data-start="10.557" data-duration="3.810" data-track-index="3"><div class="card"><div class="eyebrow">COMPRAS DE $90.000 O MÁS</div><div class="mid r1">ENVÍO GRATIS</div><div class="sub r2">A TODA ARGENTINA</div></div></div>
+<div id="c-local" class="clip cardwrap" data-start="15.737" data-duration="1.110" data-track-index="3"><div class="card"><div class="eyebrow">EL DESCUENTO</div><div class="mid">TAMBIÉN EN EL LOCAL</div></div></div>
+<div id="c-bermudas" class="clip cardwrap" data-start="17.657" data-duration="1.950" data-track-index="3"><div class="card tag"><div class="eyebrow">BERMUDAS</div><div class="price r1">DESDE <span class="rust">$24.000</span></div></div></div>
+<div id="c-remeras" class="clip cardwrap" data-start="19.617" data-duration="1.750" data-track-index="3"><div class="card tag"><div class="eyebrow">REMERAS</div><div class="price r1">DESDE <span class="rust">$13.000</span></div></div></div>
+<div id="cap0" class="clip capwrap" data-start="0.060" data-duration="0.380" data-track-index="4"><span class="cap">ARRANCAMOS</span></div>
+<div id="cap1" class="clip capwrap" data-start="0.440" data-duration="0.420" data-track-index="4"><span class="cap">LA SEMANA</span></div>
+<div id="cap2" class="clip capwrap" data-start="0.860" data-duration="0.640" data-track-index="4"><span class="cap">EN ONESTREET</span></div>
+<div id="cap3" class="clip capwrap" data-start="1.500" data-duration="0.280" data-track-index="4"><span class="cap">CON EL</span></div>
+<div id="cap4" class="clip capwrap" data-start="1.780" data-duration="1.206" data-track-index="4"><span class="cap accent">CYBER MONDAY</span></div>
+<div id="cap5" class="clip capwrap" data-start="2.986" data-duration="1.320" data-track-index="4"><span class="cap">TODOS LOS PEDIDOS</span></div>
+<div id="cap6" class="clip capwrap" data-start="4.306" data-duration="1.140" data-track-index="4"><span class="cap">FUERON DE ANOCHE</span></div>
+<div id="cap7" class="clip capwrap" data-start="5.446" data-duration="0.500" data-track-index="4"><span class="cap">TENEMOS</span></div>
+<div id="cap8" class="clip capwrap" data-start="5.946" data-duration="0.840" data-track-index="4"><span class="cap accent">3 Y 6 CUOTAS</span></div>
+<div id="cap9" class="clip capwrap" data-start="6.786" data-duration="0.734" data-track-index="4"><span class="cap">SIN INTERÉS</span></div>
+<div id="cap10" class="clip capwrap" data-start="7.520" data-duration="0.940" data-track-index="4"><span class="cap accent">20% DE DESCUENTO</span></div>
+<div id="cap11" class="clip capwrap" data-start="8.460" data-duration="1.280" data-track-index="4"><span class="cap">EN TRANSFERENCIA</span></div>
+<div id="cap12" class="clip capwrap" data-start="9.740" data-duration="0.640" data-track-index="4"><span class="cap">Y CON COMPRAS</span></div>
+<div id="cap13" class="clip capwrap" data-start="10.380" data-duration="1.280" data-track-index="4"><span class="cap accent">DE 90 MIL PESOS</span></div>
+<div id="cap14" class="clip capwrap" data-start="11.660" data-duration="0.600" data-track-index="4"><span class="cap">O MÁS</span></div>
+<div id="cap15" class="clip capwrap" data-start="12.260" data-duration="0.740" data-track-index="4"><span class="cap accent">HAY ENVÍO GRATIS</span></div>
+<div id="cap16" class="clip capwrap" data-start="13.000" data-duration="1.420" data-track-index="4"><span class="cap">EN TODA ARGENTINA</span></div>
+<div id="cap17" class="clip capwrap" data-start="14.420" data-duration="0.540" data-track-index="4"><span class="cap">TAMBIÉN APLICAMOS</span></div>
+<div id="cap18" class="clip capwrap" data-start="14.960" data-duration="0.760" data-track-index="4"><span class="cap">EL DESCUENTO</span></div>
+<div id="cap19" class="clip capwrap" data-start="15.720" data-duration="1.100" data-track-index="4"><span class="cap">EN TODO EL LOCAL</span></div>
+<div id="cap20" class="clip capwrap" data-start="16.820" data-duration="1.260" data-track-index="4"><span class="cap">TENEMOS BERMUDAS</span></div>
+<div id="cap21" class="clip capwrap" data-start="18.080" data-duration="1.520" data-track-index="4"><span class="cap accent">DESDE 24 MIL</span></div>
+<div id="cap22" class="clip capwrap" data-start="19.600" data-duration="0.420" data-track-index="4"><span class="cap">REMERAS</span></div>
+<div id="cap23" class="clip capwrap" data-start="20.020" data-duration="1.360" data-track-index="4"><span class="cap accent">DESDE 13 MIL</span></div>
+<div id="cap24" class="clip capwrap" data-start="21.380" data-duration="0.600" data-track-index="4"><span class="cap">Y MUCHAS</span></div>
+<div id="cap25" class="clip capwrap" data-start="21.980" data-duration="0.880" data-track-index="4"><span class="cap">PROMOS MÁS</span></div>
+<div id="cap26" class="clip capwrap" data-start="22.860" data-duration="0.300" data-track-index="4"><span class="cap">ASÍ QUE</span></div>
+<div id="cap27" class="clip capwrap" data-start="23.160" data-duration="0.600" data-track-index="4"><span class="cap">LOS ESPERAMOS</span></div>
+<div id="cap28" class="clip capwrap high" data-start="23.760" data-duration="0.380" data-track-index="4"><span class="cap">EN CALLE</span></div>
+<div id="cap29" class="clip capwrap high" data-start="24.140" data-duration="1.646" data-track-index="4"><span class="cap">CERVANTES 35</span></div>
+<div id="cap30" class="clip capwrap high" data-start="25.786" data-duration="0.700" data-track-index="4"><span class="cap">Y CON ENVÍO</span></div>
+<div id="cap31" class="clip capwrap high" data-start="26.486" data-duration="1.380" data-track-index="4"><span class="cap">A TODO EL PAÍS</span></div>
+<div id="cta" class="clip" data-start="23.437" data-duration="4.430" data-track-index="5"><div class="band"><div class="wm"><img src="assets/brand/logo-wordmark.png" alt="OneStreet"></div><div class="addr">CALLE CERVANTES 35</div><div class="ship">ENVÍO A TODO EL PAÍS</div></div></div>
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+tl.set('#frame',{scale:1},0.000);
+tl.to('#frame',{scale:1.03,duration:2.800,ease:'none'},0.000);
+tl.set('#frame',{scale:1},2.800);
+tl.to('#frame',{scale:1.03,duration:4.533,ease:'none'},2.800);
+tl.set('#frame',{scale:1.12},7.333);
+tl.to('#frame',{scale:1.15,duration:18.200,ease:'none'},7.333);
+tl.set('#frame',{scale:1},25.533);
+tl.to('#frame',{scale:1.03,duration:2.334,ease:'none'},25.533);
+tl.from('#logo .pill',{y:-40,opacity:0,duration:.35,ease:'back.out(1.6)'},0);
+tl.from('#logo .badge',{y:-24,rotation:-6,scale:.7,opacity:0,duration:.32,ease:'back.out(2)'},1.797);
+tl.to('#logo',{y:-60,opacity:0,duration:.25,ease:'power2.in'},2.803);
+tl.from('#c-cuotas .card',{y:80,rotation:-4,scale:.85,opacity:0,duration:.34,ease:'back.out(1.7)'},5.963);
+tl.to('#c-cuotas .card',{y:30,scale:.92,opacity:0,duration:.2,ease:'power2.in'},7.327);
+tl.set('#c-cuotas .card',{opacity:0},7.527);
+tl.from('#c-transf .card',{y:80,rotation:-4,scale:.85,opacity:0,duration:.34,ease:'back.out(1.7)'},7.537);
+tl.to('#c-transf .card',{y:30,scale:.92,opacity:0,duration:.2,ease:'power2.in'},9.547);
+tl.set('#c-transf .card',{opacity:0},9.747);
+tl.from('#c-envio .card',{y:80,rotation:-4,scale:.85,opacity:0,duration:.34,ease:'back.out(1.7)'},10.557);
+tl.from('#c-envio .r1',{y:20,opacity:0,duration:.22,ease:'power2.out'},12.487);
+tl.from('#c-envio .r2',{y:20,opacity:0,duration:.22,ease:'power2.out'},13.127);
+tl.to('#c-envio .card',{y:30,scale:.92,opacity:0,duration:.2,ease:'power2.in'},14.167);
+tl.set('#c-envio .card',{opacity:0},14.367);
+tl.from('#c-local .card',{y:80,rotation:-4,scale:.85,opacity:0,duration:.34,ease:'back.out(1.7)'},15.737);
+tl.to('#c-local .card',{y:30,scale:.92,opacity:0,duration:.2,ease:'power2.in'},16.647);
+tl.set('#c-local .card',{opacity:0},16.847);
+tl.from('#c-bermudas .card',{y:80,rotation:-8,scale:.85,opacity:0,duration:.34,ease:'back.out(1.7)'},17.657);
+tl.from('#c-bermudas .r1',{y:20,opacity:0,duration:.22,ease:'power2.out'},18.107);
+tl.to('#c-bermudas .card',{y:30,scale:.92,opacity:0,duration:.2,ease:'power2.in'},19.407);
+tl.set('#c-bermudas .card',{opacity:0},19.607);
+tl.from('#c-remeras .card',{y:80,rotation:-8,scale:.85,opacity:0,duration:.34,ease:'back.out(1.7)'},19.617);
+tl.from('#c-remeras .r1',{y:20,opacity:0,duration:.22,ease:'power2.out'},20.047);
+tl.to('#c-remeras .card',{y:30,scale:.92,opacity:0,duration:.2,ease:'power2.in'},21.167);
+tl.set('#c-remeras .card',{opacity:0},21.367);
+tl.from('#cta .band',{yPercent:110,duration:.4,ease:'power3.out'},23.437);
+tl.from('#cta .addr',{y:30,opacity:0,duration:.3,ease:'power2.out'},23.887);
+tl.from('#cta .ship',{y:20,opacity:0,duration:.25,ease:'power2.out'},26.293);
+tl.from('#cta .wm',{scale:.8,opacity:0,duration:.3,ease:'back.out(1.6)'},23.587);
+window.__timelines=window.__timelines||{};window.__timelines['reel']=tl;
+</script></body></html>

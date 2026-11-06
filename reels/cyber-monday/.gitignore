@@ -1,0 +1,11 @@
+# Salidas de render (pesadas; se regeneran con npm run reel:render)
+renders/
+archive/*.mp4
+# Fuente original del corte (cut.mp4 ya está versionado y alcanza para renderizar)
+source/
+# Generados por build-v2.mjs
+index.html
+compositions/gen/
+assets/plan-v2.json
+assets/brand/
+.thumbnails/
