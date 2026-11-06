@@ -1,0 +1,6 @@
+# build-v2.mjs hace reemplazos exactos sobre los componentes: los saltos de línea tienen que ser LF en cualquier máquina
+*.html text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf

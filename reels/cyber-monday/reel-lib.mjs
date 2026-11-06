@@ -51,7 +51,7 @@ export function readBrandColors(brandTsPath) {
 // ── Variantes de componentes ──
 export class Project {
   constructor(dir) { this.dir = dir; mkdirSync(join(dir, 'compositions/gen'), { recursive: true }); }
-  read(rel) { return readFileSync(join(this.dir, rel), 'utf8'); }
+  read(rel) { return readFileSync(join(this.dir, rel), 'utf8').replace(/\r\n/g, '\n'); }
   // Copia un componente con reemplazos exactos; falla si un reemplazo no aplica (evita adaptaciones silenciosas).
   variant(srcRel, outName, replacements) {
     let s = this.read(srcRel);
