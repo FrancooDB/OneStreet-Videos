@@ -18,6 +18,16 @@ Este repo sirve para editar y renderizar videos verticales de OneStreet con Remo
 - `scripts/transcribe.mts`: transcripción local de audio para generar subtítulos.
 - `reels/<nombre>/`: reels hechos con HyperFrames (no Remotion). Toman colores de `src/brand.ts` y logos de `public/brand/`. Ver `reels/cyber-monday/README.md` (`npm run reel:preview|draft|render`).
 
+## Herk Edit Kit (reels con HyperFrames)
+
+Kit de Nate Herk (MIT, `nateherkai/herk-edit-kit`, commit `10511e5`) instalado para editar reels:
+
+- Skills en `.claude/skills/`: `short-form-edit` (reels desde footage), `cut-silences`, `cut-mistakes`, `edit-video`, `video-storytelling`, `hyperframes*`, `gsap`, `style-library`, entre otras.
+- Archivos de soporte en `herk-edit-kit/`. Cuando una skill del kit nombre `scripts/`, `docs/`, `style-library/`, `style-templates/`, `MOTION_PHILOSOPHY.md` o `DESIGN.md`, buscalos dentro de `herk-edit-kit/`.
+- Los proyectos van en `reels/<nombre>/`, no en `video-projects/`.
+- La marca viene de `src/brand.ts`; los ejemplos del kit (AIS) no aplican.
+- Las claves opcionales (ElevenLabs, etc.) van en `.env` local, que nunca se commitea. La transcripción local de `npm run transcribe` no necesita clave.
+
 ## Reglas de trabajo
 
 - **Sincronía:** si cambiás tiempos de popups o subtítulos, mantené `Popups.tsx` alineado con `captions.json`. La duración total de `MyComp` debe cubrir el último popup.
